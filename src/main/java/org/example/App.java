@@ -16,7 +16,12 @@ public class App {
         System.out.println( "What is the exchange rate?" );
         Double exchangeRate = input.nextDouble();
 
-        double c_to = exchangeRate * euros;
+        double c_to = 0;
+
+        if (((euros * exchangeRate) - Math.floor(euros * exchangeRate)) >= 0.5)
+            c_to = (Math.ceil(100 * euros * exchangeRate)) / 100;
+        else
+            c_to = (Math.floor(100 * euros * exchangeRate)) / 100;
 
         System.out.println(euros + " euros at an exchange rate of " + exchangeRate +
                 " is " + c_to + " U.S. dollars.");
